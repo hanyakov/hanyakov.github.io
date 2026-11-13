@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Hanya Khaled · Software Engineer II, Cloud Platform</title>
+<title>Hanya Khaled · Software Engineer II, Backend, Full-Stack and Cloud</title>
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://hanyakov.github.io/">
-<meta property="og:title" content="Hanya Khaled · Software Engineer II, Cloud Platform">
-<meta property="og:description" content="Case studies with architecture diagrams: Kubernetes migrations, async disk operations, usage alerting, multi-cloud and cost work on Incorta Cloud.">
+<meta property="og:title" content="Hanya Khaled · Software Engineer II, Backend, Full-Stack and Cloud">
+<meta property="og:description" content="Case studies with architecture diagrams: full-stack features, distributed systems, multi-cloud and cost work on Incorta Cloud.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230a7d6a'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='27' font-weight='700' fill='white' text-anchor='middle'%3EHK%3C/text%3E%3C/svg%3E">
-<meta name="description" content="Case studies with architecture diagrams for each line of Hanya Khaled's Incorta experience.">
+<meta name="description" content="Case studies with architecture diagrams of Hanya Khaled's work on Incorta Cloud: full-stack features, distributed systems and cloud infrastructure.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Schibsted+Grotesk:wght@600;700;800&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap">
@@ -143,35 +143,32 @@ button:hover { border-color: var(--accent); }
   color: var(--muted);
   margin: 0 0 4px;
 }
-.index ol {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.groups {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0 32px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0 28px;
 }
+.group h3 {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--accent-ink);
+  margin: 14px 0 2px;
+}
+.index ol { list-style: none; margin: 0; padding: 0; }
 .index li a {
-  display: grid;
-  grid-template-columns: 30px minmax(0, 1fr);
-  gap: 2px 8px;
-  padding: 12px 0;
+  display: block;
+  padding: 10px 0;
   border-bottom: 1px solid var(--line);
   color: var(--ink);
   text-decoration: none;
-  height: 100%;
 }
-.index .n {
-  font-family: var(--font-mono);
-  font-size: 12.5px;
-  color: var(--accent-ink);
-  padding-top: 3px;
-  grid-row: span 2;
-}
-.index .t { font-weight: 600; line-height: 1.3; }
-.index .d { font-size: 14.5px; color: var(--muted); }
+.index .t { display: block; font-weight: 600; line-height: 1.3; }
+.index .d { display: block; font-size: 14px; color: var(--muted); margin-top: 2px; }
 .index li a:hover .t { text-decoration: underline; text-underline-offset: 3px; }
-@media (max-width: 640px) { .index ol { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 720px) { .groups { grid-template-columns: minmax(0, 1fr); } }
 
 .case { margin-top: 56px; padding-top: 48px; border-top: 1px solid var(--line); scroll-margin-top: 16px; }
 .meta {
@@ -182,7 +179,6 @@ button:hover { border-color: var(--accent); }
   flex-wrap: wrap;
   gap: 4px 12px;
 }
-.meta .n { color: var(--accent-ink); font-weight: 500; }
 .case h2 {
   font-family: var(--font-display);
   font-weight: 700;
@@ -264,6 +260,26 @@ footer {
 }
 footer p { margin: 0; max-width: 70ch; }
 
+.sketch { margin: 22px 0 0; }
+.sketch-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--muted);
+  margin: 0 0 6px;
+}
+.sketch pre {
+  margin: 0;
+  padding: 14px 16px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow-x: auto;
+}
+.sketch code { font-family: var(--font-mono); font-size: 13px; line-height: 1.6; color: var(--ink-2); white-space: pre; font-variant-ligatures: none; }
+.sketch .c { color: var(--muted); }
+
 /* Diagrams */
 .dg { display: block; width: 100%; height: auto; font-family: var(--font-body); }
 .dg text { fill: var(--ink); font-size: 13px; }
@@ -308,38 +324,353 @@ footer p { margin: 0; max-width: 70ch; }
 <body>
 <div class="wrap">
   <header>
-    <p class="eyebrow">Engineering portfolio · Cloud platform</p>
+    <p class="eyebrow">Engineering portfolio</p>
     <h1>Hanya Khaled</h1>
-    <p class="role">Software Engineer II · Cloud Platform, DevOps and Site Reliability</p>
-    <p class="intro">I work on the control plane of Incorta Cloud: the services that create, move, scale, archive and meter customer data clusters running on Kubernetes across Google Cloud, AWS and Azure. Each case study below matches one line of my CV and shows how the system works, drawn the way I would sketch it on a whiteboard.</p>
+    <p class="role">Software Engineer II · Backend, Full-Stack and Cloud Systems</p>
+    <p class="intro">I build production applications and distributed systems, from the screens customers use to the backend services and cloud infrastructure behind them. At Incorta I work on Incorta Cloud: the customer portal, the internal admin portal and the control plane that runs customer analytics clusters on Kubernetes across Google Cloud, AWS and Azure. Each case study shows the problem, how the system works and what changed.</p>
     <div class="contact">
       <span class="email"><a id="email" href="mailto:haniakhaled615@gmail.com">haniakhaled615@gmail.com</a><button id="copy-email" type="button">Copy</button></span>
       <a href="https://linkedin.com/in/hanya-khaled-744442276">LinkedIn</a>
       <a href="https://github.com/hanyakov">GitHub</a>
     </div>
-    <p class="trail">530+ commits · 9 repositories · Node.js, Go, TypeScript, Python, Bash</p>
+    <p class="trail">550+ commits · 11 repositories · TypeScript, JavaScript, Go, Python, Bash</p>
   </header>
 
   <nav class="index" id="index" aria-label="Case studies">
-    <h2 class="index-title">From my CV, in the same order</h2>
-    <ol>
-      <li><a href="#zone-migration"><span class="n">01</span><span class="t">Moving stateful clusters between zones</span><span class="d">Kubernetes, GCP disks, failover</span></a></li>
-      <li><a href="#async-disk-ops"><span class="n">02</span><span class="t">Async disk operations that survive lost callbacks</span><span class="d">Callbacks, idempotency, reconciliation</span></a></li>
-      <li><a href="#idle-cleanup"><span class="n">03</span><span class="t">Cleaning up idle resources automatically</span><span class="d">Queues and schedules behind an estimated 30% cost cut</span></a></li>
-      <li><a href="#usage-alerts"><span class="n">04</span><span class="t">Usage alerts customers set for themselves</span><span class="d">Go alerting engine, checks every 4 hours</span></a></li>
-      <li><a href="#multi-cloud"><span class="n">05</span><span class="t">One control plane, three clouds</span><span class="d">Provider layer and AWS operator features</span></a></li>
-      <li><a href="#cloud-security"><span class="n">06</span><span class="t">Least-privilege access and credential rotation</span><span class="d">IRSA, EKS Pod Identity, S3 ABAC</span></a></li>
-      <li><a href="#forecasting"><span class="n">07</span><span class="t">A month-end forecast that follows recent usage</span><span class="d">Backtested: 2.9% to 2.0% average miss</span></a></li>
-      <li><a href="#platform-ops"><span class="n">08</span><span class="t">Scheduled scaling, ops tooling and delivery</span><span class="d">Admin portal, CI/CD, Kustomize</span></a></li>
-    </ol>
+    <h2 class="index-title">Case studies</h2>
+    <div class="groups">
+      <section class="group">
+        <h3>Full-stack product work</h3>
+        <ol>
+          <li><a href="#in-app-messages"><span class="t">In-app messages, end to end</span><span class="d">React form, Node.js API, MySQL, popup package</span></a></li>
+          <li><a href="#usage-alerts"><span class="t">Usage alerts, from the settings form to the alerting engine</span><span class="d">React, Node.js REST APIs, MySQL, Go</span></a></li>
+          <li><a href="#platform-ops"><span class="t">Admin portal tools, scheduled scaling and delivery</span><span class="d">React, TypeScript, CI/CD, Kustomize</span></a></li>
+        </ol>
+      </section>
+      <section class="group">
+        <h3>Backend and distributed systems</h3>
+        <ol>
+          <li><a href="#async-disk-ops"><span class="t">Async disk operations that survive lost callbacks</span><span class="d">Callbacks, idempotency, reconciliation</span></a></li>
+          <li><a href="#zone-migration"><span class="t">Moving stateful clusters between zones</span><span class="d">Kubernetes, cloud disks, failover</span></a></li>
+          <li><a href="#forecasting"><span class="t">A month-end forecast that follows recent usage</span><span class="d">Backtested: 2.9% to 2.0% average miss</span></a></li>
+        </ol>
+      </section>
+      <section class="group">
+        <h3>Cloud, security and cost</h3>
+        <ol>
+          <li><a href="#multi-cloud"><span class="t">One control plane across clouds</span><span class="d">Provider layer and AWS operator features</span></a></li>
+          <li><a href="#cloud-security"><span class="t">Least-privilege access and credential rotation</span><span class="d">IRSA, EKS Pod Identity, S3 ABAC</span></a></li>
+          <li><a href="#idle-cleanup"><span class="t">Cleaning up idle resources automatically</span><span class="d">Queues and schedules behind an estimated 30% cost cut</span></a></li>
+        </ol>
+      </section>
+    </div>
   </nav>
 
   <main>
-    <!-- 01 -->
+    <article class="case" id="in-app-messages">
+      <p class="meta"><span>Full stack</span><span>Nov 2026</span></p>
+      <h2>In-app messages, end to end</h2>
+      <blockquote class="cv"><span class="cv-label">In short</span>Built in-app messages end to end: a React/TypeScript authoring form with live previews, Node.js REST APIs with MySQL storage, audience rules by release and customer, and a shared TypeScript popup package.</blockquote>
+      <p class="lead-in"><span class="tag">Problem</span>Staff had one way to tell customers about a release: an entry in the portal's What's New feed, emailed to every newsletter subscriber. There was no way to show a message inside the products people work in, aim it at the clusters it concerns, or schedule and stop it.</p>
+      <figure>
+        <div class="fig-scroll">
+          <svg class="dg" viewBox="0 0 760 310" role="img" aria-label="Staff write a message in the admin portal; the admin backend checks permission and forwards it to the control plane API, which checks every field, applies fail-closed audience rules, caches published messages, stores settings in MySQL and serves popups to the analytics app, filters the What's New feed and sends the newsletter email once.">
+            <defs>
+              <marker id="f9-a" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path class="ah" d="M0,0 L10,5 L0,10 z"/></marker>
+            </defs>
+            <text class="lbl" x="20" y="24">Write</text>
+            <text class="lbl" x="275" y="24">Decide</text>
+            <text class="lbl" x="530" y="24">Show</text>
+
+            <rect class="bx" x="20" y="40" width="210" height="56" rx="6"/>
+            <text class="tc b" x="125" y="63">Admin portal</text>
+            <text class="sm tc" x="125" y="81">form with live preview</text>
+            <rect class="bx" x="20" y="140" width="210" height="56" rx="6"/>
+            <text class="tc b" x="125" y="163">Admin backend</text>
+            <text class="sm tc" x="125" y="181">checks permission, forwards</text>
+            <line class="ln" x1="125" y1="96" x2="125" y2="137" marker-end="url(#f9-a)"/>
+            <text class="sm on" x="133" y="121">save, publish, stop</text>
+
+            <rect class="bx-acc" x="275" y="40" width="210" height="170" rx="8"/>
+            <text class="tc b" x="380" y="63">Control plane API</text>
+            <text class="sm tc" x="380" y="81">Node.js, REST</text>
+            <text class="sm tc ink" x="380" y="110">checks every field</text>
+            <text class="sm tc ink" x="380" y="130">audience rules, fail closed</text>
+            <text class="sm tc ink" x="380" y="150">cached for a minute</text>
+            <text class="sm tc ink" x="380" y="170">off switch</text>
+            <text class="sm tc ink" x="380" y="190">emails once, at first go-live</text>
+            <line class="ln" x1="230" y1="168" x2="272" y2="168" marker-end="url(#f9-a)"/>
+            <text class="sm tc on" x="251" y="160">edits</text>
+
+            <rect class="bx" x="275" y="250" width="210" height="48" rx="6"/>
+            <text class="tc b" x="380" y="271">MySQL</text>
+            <text class="sm tc" x="380" y="288">settings, status, first go-live</text>
+            <line class="ln" x1="380" y1="210" x2="380" y2="247" marker-end="url(#f9-a)"/>
+            <text class="sm on" x="388" y="233">stores</text>
+
+            <rect class="bx" x="530" y="40" width="210" height="46" rx="6"/>
+            <text class="tc b" x="635" y="59">Analytics app</text>
+            <text class="sm tc" x="635" y="76">one popup per visit</text>
+            <rect class="bx" x="530" y="110" width="210" height="46" rx="6"/>
+            <text class="tc b" x="635" y="129">What's New feed</text>
+            <text class="sm tc" x="635" y="146">only its audience</text>
+            <rect class="bx" x="530" y="180" width="210" height="46" rx="6"/>
+            <text class="tc b" x="635" y="199">Newsletter email</text>
+            <text class="sm tc" x="635" y="216">sent once</text>
+            <line class="ln" x1="485" y1="63" x2="527" y2="63" marker-end="url(#f9-a)"/>
+            <line class="ln" x1="485" y1="133" x2="527" y2="133" marker-end="url(#f9-a)"/>
+            <line class="ln" x1="485" y1="203" x2="527" y2="203" marker-end="url(#f9-a)"/>
+          </svg>
+        </div>
+        <figcaption>Staff write a message once in the admin portal. The control plane checks every field, stores the settings in MySQL and decides, per cluster or per portal user, who should see it. The analytics app asks for its own popups, and the same popup package draws them there and in the admin form's live preview.</figcaption>
+      </figure>
+      <h3>What I built</h3>
+      <ul class="built">
+        <li><strong>Admin form (React, TypeScript).</strong> A drawer to write, edit and copy a message: its text and button, where it shows, who sees it and when. Live previews show the feed entry and the popup exactly as customers will see them, every field says what's missing before anything is saved, and actions are hidden from admins without permission.</li>
+        <li><strong>API and data (Node.js, MySQL).</strong> Message settings live on the existing announcements table, added with migrations that keep every existing entry as it was. A whitelist keeps only the fields a request may set and refuses bad settings with the reason, such as "The end must be after the start". A message moves between draft, published and stopped.</li>
+        <li><strong>Audience rules.</strong> A message is matched against a cluster (product release, services and their versions, customer, cluster name) or against a portal user. A rule that can't be read matches no one, so a mistake can never widen the audience.</li>
+        <li><strong>Delivery.</strong> Clusters and portal users each ask for their own popups. Published messages and an off switch are cached for up to a minute, message text is cleaned down to basic formatting, and the newsletter email goes out once, the first time a message goes live, only to the customers it is meant for.</li>
+        <li><strong>Popup package (TypeScript).</strong> One package, with a React build and a plain-script build, draws every popup the same way, in the analytics app and in the admin form's preview: inside a Shadow DOM so page styles can't clash, with the text cleaned again before drawing and a per-person memory of what was seen or skipped.</li>
+      </ul>
+      <div class="sketch">
+        <p class="sketch-label">Sketch of the approach, written for this page</p>
+        <pre><code><span class="c">// Each rule narrows who sees a message. A rule this code doesn't know,
+// or one that throws while it's checked, matches no one.</span>
+function isFor(message, cluster) {
+  try {
+    return Object.entries(message.rules ?? {}).every(
+      ([name, rule]) =&gt; checks[name]?.(rule, cluster) === true
+    );
+  } catch {
+    return false;
+  }
+}</code></pre>
+      </div>
+      <p class="lead-in"><span class="tag">Result</span>Staff write, target, schedule, publish and stop messages from one form, see them as customers will before they go out, and can reach customers inside the analytics app instead of only by email. The server, the admin form and the popup package each ship with unit tests (Jest, Vitest).</p>
+      <ul class="stack"><li>React</li><li>TypeScript</li><li>Node.js</li><li>MySQL</li><li>Sequelize</li><li>Shadow DOM</li><li>Jest</li><li>Vitest</li></ul>
+      <a class="back" href="#index">Back to the list</a>
+    </article>
+
+    <article class="case" id="usage-alerts">
+      <p class="meta"><span>Full stack</span><span>Feb 2025 – Oct 2026</span></p>
+      <h2>Usage alerts, from the settings form to the alerting engine</h2>
+      <blockquote class="cv"><span class="cv-label">In short</span>Designed and shipped usage alerting across 4 services: React forms in two portals, Node.js REST APIs with permissions and MySQL storage, and a Go alerting engine; budget alerts at 50/80/100% by engine, service, Spark workload or AI model.</blockquote>
+      <p class="lead-in"><span class="tag">Problem</span>Customers learned about high consumption late. The first consumption alerts I built in 2025 checked a whole cluster once a day, and customers had no way to set their own limit on one engine, service or workload.</p>
+      <figure>
+        <div class="fig-scroll">
+          <svg class="dg" viewBox="0 0 760 300" role="img" aria-label="Users set a limit in the customer or admin portal; the control plane creates one policy per level in the alerting engine; every 4 hours the engine reads usage from the control plane and reports crossed levels, which the control plane records and emails to cluster members.">
+            <defs>
+              <marker id="f4-a" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path class="ah" d="M0,0 L10,5 L0,10 z"/></marker>
+              <marker id="f4-c" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto"><path class="ah-acc" d="M0,0 L10,5 L0,10 z"/></marker>
+            </defs>
+            <rect class="bx" x="20" y="48" width="130" height="40" rx="6"/>
+            <text class="tc" x="85" y="73">Customer portal</text>
+            <rect class="bx" x="20" y="112" width="130" height="40" rx="6"/>
+            <text class="tc" x="85" y="137">Admin portal</text>
+            <line class="ln" x1="150" y1="68" x2="237" y2="84" marker-end="url(#f4-a)"/>
+            <line class="ln" x1="150" y1="132" x2="237" y2="116" marker-end="url(#f4-a)"/>
+            <text class="sm tc on" x="194" y="104">set a limit</text>
+
+            <rect class="bx" x="240" y="40" width="190" height="120" rx="8"/>
+            <text class="tc b" x="335" y="66">Control plane API</text>
+            <text class="sm tc" x="335" y="84">Node.js</text>
+            <text class="sm tc" x="335" y="140">rules, events, emails</text>
+
+            <rect class="bx" x="590" y="40" width="150" height="120" rx="8"/>
+            <text class="tc b" x="665" y="66">Alerting engine</text>
+            <text class="sm tc" x="665" y="84">Go</text>
+            <rect class="pill" x="600" y="118" width="40" height="22" rx="11"/>
+            <text class="sm tc ink" x="620" y="133">50%</text>
+            <rect class="pill" x="645" y="118" width="40" height="22" rx="11"/>
+            <text class="sm tc ink" x="665" y="133">80%</text>
+            <rect class="pill" x="690" y="118" width="40" height="22" rx="11"/>
+            <text class="sm tc ink" x="710" y="133">100%</text>
+
+            <line class="ln" x1="430" y1="70" x2="587" y2="70" marker-end="url(#f4-a)"/>
+            <text class="sm tc on" x="510" y="62">one policy per level</text>
+            <line class="ln-acc" x1="590" y1="102" x2="433" y2="102" marker-end="url(#f4-c)"/>
+            <text class="sm acc tc on" x="510" y="94">every 4 h: read usage</text>
+            <line class="ln" x1="590" y1="134" x2="433" y2="134" marker-end="url(#f4-a)"/>
+            <text class="sm tc on" x="510" y="126">level crossed</text>
+
+            <rect class="bx" x="190" y="232" width="170" height="52" rx="6"/>
+            <text class="tc" x="275" y="254">Consumption data</text>
+            <text class="sm tc" x="275" y="272">read day by day, cached</text>
+            <rect class="bx" x="400" y="232" width="170" height="52" rx="6"/>
+            <text class="tc" x="485" y="254">Email</text>
+            <text class="sm tc" x="485" y="272">cluster members, once</text>
+            <line class="ln" x1="290" y1="160" x2="280" y2="229" marker-end="url(#f4-a)"/>
+            <text class="sm te on" x="276" y="200">month to date</text>
+            <line class="ln" x1="390" y1="160" x2="470" y2="229" marker-end="url(#f4-a)"/>
+            <text class="sm on" x="442" y="196">record, then notify</text>
+          </svg>
+        </div>
+        <figcaption>Each level of a rule is its own policy in the alerting engine. Every 4 hours the engine reads usage from the control plane; when a level is crossed it sends an event, which is recorded before the cluster's members get one email.</figcaption>
+      </figure>
+      <h3>What I built</h3>
+      <ul class="built">
+        <li>React and TypeScript screens in both portals: a usage alerts section on the customer portal's cluster page, and admin pages for every cluster's alerts and their delivery status.</li>
+        <li>REST APIs in Node.js to create, edit, list and delete rules, plus a discovery endpoint that lists the services, Spark workloads and AI models a cluster actually used, so the form only offers real choices.</li>
+        <li>Validation and permissions on the server: any accepted member of a cluster can manage its rules and admins can manage all of them; malformed filters are refused, and a cluster holds at most 20 rules, with a 409 response that names the limit.</li>
+        <li>MySQL tables for rules and delivery events, built with Sequelize migrations. Events outlive a deleted rule, and a paged endpoint shows who was emailed and whether it worked.</li>
+        <li>Each level (50%, 80%, 100%) is its own policy in the central alerting engine (Go), checked every 4 hours and spread across the hour. Usage comes from a service-authenticated endpoint that reads month-to-date usage day by day and caches settled days.</li>
+      </ul>
+      <div class="sketch">
+        <p class="sketch-label">Sketch of the approach, written for this page</p>
+        <pre><code><span class="c">// One rule becomes one policy per level. If any level fails, remove the ones
+// already made, so a failure never leaves a half-configured alert behind.</span>
+const made = [];
+try {
+  for (const level of [50, 80, 100]) made.push(await alerting.createPolicy(rule, level));
+} catch (error) {
+  await Promise.allSettled(made.map((policy) =&gt; alerting.deletePolicy(policy.id)));
+  throw error;
+}</code></pre>
+      </div>
+      <p class="lead-in"><span class="tag">Result</span>Customers set and manage their own budget alerts for any engine, service, Spark workload or AI model, and can see each alert's delivery history.</p>
+      <ul class="stack"><li>React</li><li>TypeScript</li><li>Node.js</li><li>Go</li><li>MySQL</li><li>Sequelize</li><li>REST APIs</li></ul>
+      <a class="back" href="#index">Back to the list</a>
+    </article>
+
+    <article class="case" id="platform-ops">
+      <p class="meta"><span>Full stack and DevOps</span><span>Mar 2025 – Oct 2026</span></p>
+      <h2>Admin portal tools, scheduled scaling and delivery</h2>
+      <blockquote class="cv"><span class="cv-label">In short</span>Built scheduled scaling for services, loaders and sub-clusters and ops tooling in the React/TypeScript admin portal, and shipped services through GitHub Actions, Cloud Build and Kustomize to per-region deployments in the US and UAE.</blockquote>
+      <p class="lead-in"><span class="tag">Problem</span>Scaling on a schedule and routine operations, such as forcing a stuck upgrade, reading Spark pod logs or approving backups, needed an engineer with cluster access.</p>
+      <figure>
+        <div class="fig-scroll">
+          <svg class="dg" viewBox="0 0 760 196" role="img" aria-label="Delivery pipeline: a pull request runs checks and a code quality gate in GitHub Actions, Cloud Build builds a Docker image, and Kustomize overlays deploy one operator per region: GCP us-west1, GCP us-central1 and Azure UAE North.">
+            <defs>
+              <marker id="f8-a" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path class="ah" d="M0,0 L10,5 L0,10 z"/></marker>
+            </defs>
+            <rect class="bx" x="16" y="72" width="100" height="56" rx="6"/>
+            <text class="tc b" x="66" y="96">Pull</text>
+            <text class="tc b" x="66" y="113">request</text>
+            <rect class="bx" x="146" y="72" width="180" height="56" rx="6"/>
+            <text class="tc b" x="236" y="96">GitHub Actions</text>
+            <text class="sm tc" x="236" y="114">checks + quality gate</text>
+            <rect class="bx" x="356" y="72" width="120" height="56" rx="6"/>
+            <text class="tc b" x="416" y="96">Cloud Build</text>
+            <text class="sm tc" x="416" y="114">Docker image</text>
+            <rect class="bx" x="506" y="72" width="100" height="56" rx="6"/>
+            <text class="tc b" x="556" y="96">Kustomize</text>
+            <text class="sm tc" x="556" y="114">overlays</text>
+            <line class="ln" x1="116" y1="100" x2="143" y2="100" marker-end="url(#f8-a)"/>
+            <line class="ln" x1="326" y1="100" x2="353" y2="100" marker-end="url(#f8-a)"/>
+            <line class="ln" x1="476" y1="100" x2="503" y2="100" marker-end="url(#f8-a)"/>
+
+            <rect class="bx-acc" x="640" y="20" width="104" height="40" rx="6"/>
+            <text class="sm tc ink b" x="692" y="36">GCP</text>
+            <text class="sm tc" x="692" y="51">us-west1</text>
+            <rect class="bx-acc" x="640" y="80" width="104" height="40" rx="6"/>
+            <text class="sm tc ink b" x="692" y="96">GCP</text>
+            <text class="sm tc" x="692" y="111">us-central1</text>
+            <rect class="bx-acc" x="640" y="140" width="104" height="40" rx="6"/>
+            <text class="sm tc ink b" x="692" y="156">Azure</text>
+            <text class="sm tc" x="692" y="171">UAE North</text>
+            <line class="ln" x1="606" y1="100" x2="637" y2="42" marker-end="url(#f8-a)"/>
+            <line class="ln" x1="606" y1="100" x2="637" y2="100" marker-end="url(#f8-a)"/>
+            <line class="ln" x1="606" y1="100" x2="637" y2="158" marker-end="url(#f8-a)"/>
+          </svg>
+        </div>
+        <figcaption>Every change runs branch-name, syntax and code quality checks in GitHub Actions. Cloud Build produces the image, and Kustomize overlays deploy one operator per cloud region.</figcaption>
+      </figure>
+      <h3>What I built</h3>
+      <ul class="built">
+        <li>Scheduled scaling for services, loaders and sub-clusters, with node status kept in sync while scaling and on connect or disconnect, plus a scaling history view.</li>
+        <li>Admin portal tools (React, TypeScript, Ant Design): a zone control panel, backup approvals, Spark and Kyuubi pod logs, forced upgrades for stuck clusters, sign-up reviews and consumption report settings.</li>
+        <li>Customer portal: a redesigned consumption dashboard and usage alerts on the cluster page.</li>
+        <li>Per-region operator deployments through Kustomize overlays on GCP and Azure.</li>
+      </ul>
+      <p class="lead-in"><span class="tag">Result</span>Routine operations became audited actions in the admin portal instead of scripts run by hand.</p>
+      <ul class="stack"><li>React</li><li>TypeScript</li><li>Ant Design</li><li>GitHub Actions</li><li>Cloud Build</li><li>Kustomize</li><li>Docker</li></ul>
+      <a class="back" href="#index">Back to the list</a>
+    </article>
+
+    <article class="case" id="async-disk-ops">
+      <p class="meta"><span>Distributed systems</span><span>Jul – Sep 2026</span></p>
+      <h2>Async disk operations that survive lost callbacks</h2>
+      <blockquote class="cv"><span class="cv-label">In short</span>Re-architected cluster cloning, migration and archiving as async, callback-driven workflows: an idempotent, race-safe webhook tracks every disk, a pre-flight gate holds provisioning, and a reconciler settles stuck archives from disk evidence.</blockquote>
+      <p class="lead-in"><span class="tag">Problem</span>Cloning, migrating and archiving a cluster are long disk operations. The old flow held a request open while the operator worked, so gateway timeouts looked like failures, cluster setup could start before the disks were ready, and a lost report could leave a cluster marked as archiving for days.</p>
+      <figure>
+        <div class="fig-scroll">
+          <svg class="dg" viewBox="0 0 760 400" role="img" aria-label="Sequence: the control plane asks the operator to clone disks with a callback URL; the operator accepts at once, works in the background and calls back per disk; the control plane merges each report atomically and starts cluster setup only when every disk is ready.">
+            <defs>
+              <marker id="f2-a" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path class="ah" d="M0,0 L10,5 L0,10 z"/></marker>
+              <marker id="f2-c" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto"><path class="ah-acc" d="M0,0 L10,5 L0,10 z"/></marker>
+            </defs>
+            <rect class="bx" x="20" y="16" width="160" height="44" rx="6"/>
+            <text class="tc b" x="100" y="36">Control plane</text>
+            <text class="sm tc" x="100" y="52">Node.js API</text>
+            <rect class="bx" x="210" y="16" width="160" height="44" rx="6"/>
+            <text class="tc b" x="290" y="36">Database</text>
+            <text class="sm tc" x="290" y="52">per-disk status</text>
+            <rect class="bx" x="400" y="16" width="160" height="44" rx="6"/>
+            <text class="tc b" x="480" y="36">Operator service</text>
+            <text class="sm tc" x="480" y="52">Node.js, Kubernetes</text>
+            <rect class="bx" x="590" y="16" width="150" height="44" rx="6"/>
+            <text class="tc b" x="665" y="36">Cloud disk API</text>
+            <text class="sm tc" x="665" y="52">GCP, AWS, Azure</text>
+
+            <line class="life" x1="100" y1="60" x2="100" y2="280"/>
+            <line class="life" x1="290" y1="60" x2="290" y2="280"/>
+            <line class="life" x1="480" y1="60" x2="480" y2="280"/>
+            <line class="life" x1="665" y1="60" x2="665" y2="280"/>
+
+            <line class="ln" x1="100" y1="92" x2="478" y2="92" marker-end="url(#f2-a)"/>
+            <text class="sm tc on" x="290" y="85">clone disks + callback URL</text>
+            <line class="ln dash" x1="480" y1="124" x2="102" y2="124" marker-end="url(#f2-a)"/>
+            <text class="sm tc on" x="290" y="117">accepted, work continues in background</text>
+            <line class="ln" x1="480" y1="158" x2="663" y2="158" marker-end="url(#f2-a)"/>
+            <text class="sm tc on" x="572" y="151">clone or snapshot each disk</text>
+            <line class="ln dash" x1="665" y1="192" x2="482" y2="192" marker-end="url(#f2-a)"/>
+            <text class="sm tc on" x="572" y="185">disk ready</text>
+            <line class="ln-acc" x1="480" y1="228" x2="102" y2="228" marker-end="url(#f2-c)"/>
+            <text class="sm acc tc on" x="290" y="221">callback for each disk</text>
+            <line class="ln" x1="100" y1="262" x2="288" y2="262" marker-end="url(#f2-a)"/>
+            <text class="sm tc on" x="195" y="255">atomic, idempotent merge</text>
+
+            <rect class="bx-acc" x="20" y="292" width="350" height="46" rx="6"/>
+            <text class="tc b" x="195" y="311">Pre-flight gate</text>
+            <text class="sm tc" x="195" y="328">cluster setup starts only when every disk is ready</text>
+            <rect class="bx" x="400" y="292" width="340" height="46" rx="6"/>
+            <text class="tc b" x="570" y="311">Retries and reconciliation</text>
+            <text class="sm tc" x="570" y="328">3 report attempts, then settle from disk state</text>
+            <rect class="bx-warn" x="20" y="350" width="720" height="34" rx="6"/>
+            <text class="sm tc ink" x="380" y="372">Backstop job fails any disk operation still running after about 60 minutes</text>
+          </svg>
+        </div>
+        <figcaption>The operator accepts the job at once and reports each disk by callback. The control plane merges every report under a lock, so a repeated or late callback changes nothing, and the gate starts cluster setup only once every disk is ready.</figcaption>
+      </figure>
+      <h3>What I built</h3>
+      <ul class="built">
+        <li>The operator accepts disk jobs, runs them in the background and reports each disk to a callback URL instead of holding the request open.</li>
+        <li>The control plane records every attempt as a per-disk status map. The callback handler merges each report under a lock, so duplicate, late or concurrent callbacks are safe to apply.</li>
+        <li>A pre-flight gate holds cluster setup (namespace, configuration, services) until every disk is ready, and backup and disk cloning now run in parallel.</li>
+        <li>A backstop job fails any operation still running after about 60 minutes, and operator reports retry three times.</li>
+        <li>Archive state is tracked per service. A reconciler settles stuck archives only on evidence from the disks, and a restore brings back exactly the services that were archived.</li>
+      </ul>
+      <div class="sketch">
+        <p class="sketch-label">Sketch of the approach, written for this page</p>
+        <pre><code><span class="c">// A callback can arrive twice, late, or at the same moment as another one.
+// Lock the row, merge one disk's status, recompute the total: a replay changes nothing.</span>
+await db.transaction(async (tx) =&gt; {
+  const op = await DiskOperation.findByPk(id, { transaction: tx, lock: tx.LOCK.UPDATE });
+  if (isSettled(op.disks[disk])) return;
+  op.disks = { ...op.disks, [disk]: status };
+  op.status = overall(op.disks); <span class="c">// ready only when every disk is ready</span>
+  await op.save({ transaction: tx });
+});</code></pre>
+      </div>
+      <p class="lead-in"><span class="tag">Result</span>Cluster setup no longer runs on half-copied disks, stuck states settle on their own, and a path that could re-create storage on top of live disks is closed.</p>
+      <ul class="stack"><li>Node.js</li><li>MySQL</li><li>Sequelize</li><li>Redis queues</li><li>Webhooks</li><li>Kubernetes</li></ul>
+      <a class="back" href="#index">Back to the list</a>
+    </article>
+
     <article class="case" id="zone-migration">
-      <p class="meta"><span class="n">01</span><span>Reliability</span><span>Nov 2025 – Sep 2026</span></p>
+      <p class="meta"><span>Reliability</span><span>Nov 2025 – Sep 2026</span></p>
       <h2>Moving stateful clusters between zones</h2>
-      <blockquote class="cv"><span class="cv-label">On my CV</span>Led migrations of stateful Kubernetes clusters and services across GCP zones and regions: snapshot and disk-clone migration, regional disks replicated across two zones, zone-balanced node pools, and automatic recovery on failure.</blockquote>
+      <blockquote class="cv"><span class="cv-label">In short</span>Led migrations of stateful Kubernetes clusters and services across GCP and AWS zones and regions: snapshot and disk-clone migration, regional disks replicated across two zones, zone-balanced node pools, and automatic recovery on failure.</blockquote>
       <p class="lead-in"><span class="tag">Problem</span>A customer cluster keeps its data on persistent disks, and a GCP disk lives in one zone. Moving a cluster to another zone, region or disk type meant moving those disks without losing data, and a service that lived in a single zone went down with that zone.</p>
       <figure>
         <div class="fig-scroll">
@@ -405,219 +736,62 @@ footer p { margin: 0; max-width: 70ch; }
       <a class="back" href="#index">Back to the list</a>
     </article>
 
-    <!-- 02 -->
-    <article class="case" id="async-disk-ops">
-      <p class="meta"><span class="n">02</span><span>Distributed systems</span><span>Jul – Sep 2026</span></p>
-      <h2>Async disk operations that survive lost callbacks</h2>
-      <blockquote class="cv"><span class="cv-label">On my CV</span>Re-architected cluster cloning, migration and archiving as async, callback-driven workflows: an idempotent, race-safe webhook tracks every disk, a pre-flight gate holds provisioning, and a reconciler settles stuck archives from disk evidence.</blockquote>
-      <p class="lead-in"><span class="tag">Problem</span>Cloning, migrating and archiving a cluster are long disk operations. The old flow held a request open while the operator worked, so gateway timeouts looked like failures, cluster setup could start before the disks were ready, and a lost report could leave a cluster marked as archiving for days.</p>
+    <article class="case" id="forecasting">
+      <p class="meta"><span>Data and FinOps</span><span>Aug – Oct 2026</span></p>
+      <h2>A month-end forecast that follows recent usage</h2>
+      <blockquote class="cv"><span class="cv-label">In short</span>Reduced month-end usage forecast error from 2.9% to 2.0% (31% lower, backtested on 10 production clusters) by switching to a 14-day recent average; built scheduled monthly usage reports per service.</blockquote>
+      <p class="lead-in"><span class="tag">Problem</span>The consumption view projected each cluster's month-end usage from its average since the contract started. A cluster that changed its usage kept being projected at the old pace.</p>
       <figure>
         <div class="fig-scroll">
-          <svg class="dg" viewBox="0 0 760 400" role="img" aria-label="Sequence: the control plane asks the operator to clone disks with a callback URL; the operator accepts at once, works in the background and calls back per disk; the control plane merges each report atomically and starts cluster setup only when every disk is ready.">
-            <defs>
-              <marker id="f2-a" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path class="ah" d="M0,0 L10,5 L0,10 z"/></marker>
-              <marker id="f2-c" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto"><path class="ah-acc" d="M0,0 L10,5 L0,10 z"/></marker>
-            </defs>
-            <rect class="bx" x="20" y="16" width="160" height="44" rx="6"/>
-            <text class="tc b" x="100" y="36">Control plane</text>
-            <text class="sm tc" x="100" y="52">Node.js API</text>
-            <rect class="bx" x="210" y="16" width="160" height="44" rx="6"/>
-            <text class="tc b" x="290" y="36">Database</text>
-            <text class="sm tc" x="290" y="52">per-disk status</text>
-            <rect class="bx" x="400" y="16" width="160" height="44" rx="6"/>
-            <text class="tc b" x="480" y="36">Operator service</text>
-            <text class="sm tc" x="480" y="52">Node.js, Kubernetes</text>
-            <rect class="bx" x="590" y="16" width="150" height="44" rx="6"/>
-            <text class="tc b" x="665" y="36">Cloud disk API</text>
-            <text class="sm tc" x="665" y="52">GCP, AWS, Azure</text>
+          <svg class="dg" viewBox="0 0 760 300" role="img" aria-label="Illustration: usage steps up early in the month. From day 18, the since-contract average projects too low; the 14-day recent average lands close to the actual month end.">
+            <rect class="win" x="102.8" y="40" width="228.6" height="210"/>
+            <text class="sm acc tc" x="217" y="56">last 14 complete days</text>
+            <line class="axis" x1="50" y1="250" x2="560" y2="250"/>
+            <line class="axis" x1="50" y1="40" x2="50" y2="250"/>
+            <line class="axis" x1="50" y1="250" x2="50" y2="255"/>
+            <line class="axis" x1="208.3" y1="250" x2="208.3" y2="255"/>
+            <line class="axis" x1="384.1" y1="250" x2="384.1" y2="255"/>
+            <line class="axis" x1="560" y1="250" x2="560" y2="255"/>
+            <text class="sm tc" x="50" y="270">1</text>
+            <text class="sm tc" x="208.3" y="270">10</text>
+            <text class="sm tc" x="384.1" y="270">20</text>
+            <text class="sm tc" x="560" y="270">30</text>
+            <text class="sm tc" x="305" y="292">day of month</text>
+            <text class="sm" x="56" y="32">usage so far this month</text>
 
-            <line class="life" x1="100" y1="60" x2="100" y2="280"/>
-            <line class="life" x1="290" y1="60" x2="290" y2="280"/>
-            <line class="life" x1="480" y1="60" x2="480" y2="280"/>
-            <line class="life" x1="665" y1="60" x2="665" y2="280"/>
+            <line class="today" x1="349" y1="40" x2="349" y2="250"/>
+            <text class="sm" x="355" y="56">today: day 18</text>
 
-            <line class="ln" x1="100" y1="92" x2="478" y2="92" marker-end="url(#f2-a)"/>
-            <text class="sm tc on" x="290" y="85">clone disks + callback URL</text>
-            <line class="ln dash" x1="480" y1="124" x2="102" y2="124" marker-end="url(#f2-a)"/>
-            <text class="sm tc on" x="290" y="117">accepted, work continues in background</text>
-            <line class="ln" x1="480" y1="158" x2="663" y2="158" marker-end="url(#f2-a)"/>
-            <text class="sm tc on" x="572" y="151">clone or snapshot each disk</text>
-            <line class="ln dash" x1="665" y1="192" x2="482" y2="192" marker-end="url(#f2-a)"/>
-            <text class="sm tc on" x="572" y="185">disk ready</text>
-            <line class="ln-acc" x1="480" y1="228" x2="102" y2="228" marker-end="url(#f2-c)"/>
-            <text class="sm acc tc on" x="290" y="221">callback for each disk</text>
-            <line class="ln" x1="100" y1="262" x2="288" y2="262" marker-end="url(#f2-a)"/>
-            <text class="sm tc on" x="195" y="255">atomic, idempotent merge</text>
-
-            <rect class="bx-acc" x="20" y="292" width="350" height="46" rx="6"/>
-            <text class="tc b" x="195" y="311">Pre-flight gate</text>
-            <text class="sm tc" x="195" y="328">cluster setup starts only when every disk is ready</text>
-            <rect class="bx" x="400" y="292" width="340" height="46" rx="6"/>
-            <text class="tc b" x="570" y="311">Retries and reconciliation</text>
-            <text class="sm tc" x="570" y="328">3 report attempts, then settle from disk state</text>
-            <rect class="bx-warn" x="20" y="350" width="720" height="34" rx="6"/>
-            <text class="sm tc ink" x="380" y="372">Backstop job fails any disk operation still running after about 60 minutes</text>
+            <polyline class="ln-ink" points="50,246.5 173.1,222 349,145"/>
+            <line class="ln-ink dotted" x1="349" y1="145" x2="560" y2="50.5"/>
+            <line class="ln-new" x1="349" y1="145" x2="560" y2="70.5"/>
+            <line class="ln-old" x1="349" y1="145" x2="560" y2="107.2"/>
+            <circle class="d-ink" cx="349" cy="145" r="4"/>
+            <circle class="d-ink" cx="560" cy="50.5" r="4"/>
+            <circle class="d-acc" cx="560" cy="70.5" r="4"/>
+            <circle class="d-old" cx="560" cy="107.2" r="4"/>
+            <text class="sm ink" x="572" y="54.5">actual month end</text>
+            <text class="sm acc b" x="572" y="74.5">14-day recent average</text>
+            <text class="sm" x="572" y="111">since-contract average</text>
           </svg>
         </div>
-        <figcaption>The operator accepts the job at once and reports each disk by callback. The control plane merges every report under a lock, so a repeated or late callback changes nothing, and the gate starts cluster setup only once every disk is ready.</figcaption>
+        <figcaption>Illustration, not real data. When usage steps up, the average since the contract started keeps projecting the old pace; the average of the last 14 complete days follows the new pace and lands closer to the real month end. On 10 production clusters, the average month-end miss fell from 2.9% to 2.0%.</figcaption>
       </figure>
-      <h3>What I built</h3>
+      <h3>What I did</h3>
       <ul class="built">
-        <li>The operator accepts disk jobs, runs them in the background and reports each disk to a callback URL instead of holding the request open.</li>
-        <li>The control plane records every attempt as a per-disk status map. The callback handler merges each report under a lock, so duplicate, late or concurrent callbacks are safe to apply.</li>
-        <li>A pre-flight gate holds cluster setup (namespace, configuration, services) until every disk is ready, and backup and disk cloning now run in parallel.</li>
-        <li>A backstop job fails any operation still running after about 60 minutes, and operator reports retry three times.</li>
-        <li>Archive state is tracked per service. A reconciler settles stuck archives only on evidence from the disks, and a restore brings back exactly the services that were archived.</li>
+        <li>Backtested projection methods on 10 production clusters in Python. The average of the last 14 complete days missed month end by 2.0% on average, against 2.9% for the since-contract average.</li>
+        <li>Shipped it in the burn service: runway, depletion date and the daily threshold alert use the recent average, clusters without a contract get a projection too, and the next two months get a likely range that is wider for Spark-heavy clusters.</li>
+        <li>Scheduled monthly consumption reports per cluster, with a per-service chart and totals against each engine's limit.</li>
       </ul>
-      <p class="lead-in"><span class="tag">Result</span>Cluster setup no longer runs on half-copied disks, stuck states settle on their own, and a path that could re-create storage on top of live disks is closed.</p>
-      <ul class="stack"><li>Node.js</li><li>MySQL</li><li>Sequelize</li><li>Redis queues</li><li>Webhooks</li><li>Kubernetes</li></ul>
+      <p class="lead-in"><span class="tag">Result</span>Month-end forecast error 31% lower in the backtest, and a forecast for clusters that had none.</p>
+      <ul class="stack"><li>Python</li><li>Node.js</li><li>React</li><li>Cloud Scheduler</li></ul>
       <a class="back" href="#index">Back to the list</a>
     </article>
 
-    <!-- 03 -->
-    <article class="case" id="idle-cleanup">
-      <p class="meta"><span class="n">03</span><span>Cost</span><span>Jul 2025 – May 2026</span></p>
-      <h2>Cleaning up idle resources automatically</h2>
-      <blockquote class="cv"><span class="cv-label">On my CV</span>Automated cleanup of idle cloud resources, contributing to an estimated 30% cost reduction: queue-driven auto-deletion of trial clusters with 15-day, 3-day and 24-hour warnings, and a scheduled Spark cleanup routine in Go.</blockquote>
-      <p class="lead-in"><span class="tag">Problem</span>Trial clusters and old Spark files kept costing money after nobody needed them, and cleaning them up was manual work.</p>
-      <figure>
-        <div class="fig-scroll">
-          <svg class="dg" viewBox="0 0 760 232" role="img" aria-label="Timeline of a trial cluster's last weeks: warning emails at 15 days, 3 days and 24 hours before deletion, with one extension. Below, a scheduler triggers a Redis-backed queue and the control plane reminds or deletes.">
-            <defs>
-              <marker id="f3-a" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path class="ah" d="M0,0 L10,5 L0,10 z"/></marker>
-              <marker id="f3-c" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto"><path class="ah-acc" d="M0,0 L10,5 L0,10 z"/></marker>
-            </defs>
-            <path class="ln-acc" d="M 420 50 C 470 22, 640 22, 690 46" marker-end="url(#f3-c)"/>
-            <text class="sm acc tc" x="555" y="18">owner can extend once: +5 days</text>
-
-            <text class="tl" x="50" y="66">Cluster created</text>
-            <text class="tl tc" x="260" y="66">15 days left</text>
-            <text class="tl tc" x="420" y="66">3 days left</text>
-            <text class="tl tc" x="550" y="66">24 hours left</text>
-            <text class="tl te warn" x="710" y="66">Deleted</text>
-
-            <line class="ln" x1="50" y1="86" x2="710" y2="86"/>
-            <circle class="dot" cx="50" cy="86" r="5"/>
-            <circle class="dot" cx="260" cy="86" r="5"/>
-            <circle class="dot" cx="420" cy="86" r="5"/>
-            <circle class="dot" cx="550" cy="86" r="5"/>
-            <circle class="dot-warn" cx="710" cy="86" r="5"/>
-
-            <text class="sm" x="50" y="110">deletion date set</text>
-            <text class="sm tc" x="260" y="110">warning email</text>
-            <text class="sm tc" x="420" y="110">reminder email</text>
-            <text class="sm tc" x="550" y="110">final reminder</text>
-            <text class="sm te" x="710" y="110">owner notified</text>
-
-            <text class="lbl" x="20" y="150">How it runs</text>
-            <rect class="bx" x="20" y="162" width="135" height="56" rx="6"/>
-            <text class="tc b" x="87.5" y="186">Cloud Scheduler</text>
-            <text class="sm tc" x="87.5" y="204">cron trigger</text>
-            <rect class="bx" x="215" y="162" width="135" height="56" rx="6"/>
-            <text class="tc b" x="282.5" y="186">Job service</text>
-            <text class="sm tc" x="282.5" y="204">Bull queue, Redis</text>
-            <rect class="bx" x="410" y="162" width="135" height="56" rx="6"/>
-            <text class="tc b" x="477.5" y="186">Control plane</text>
-            <text class="sm tc" x="477.5" y="204">deletion queue</text>
-            <rect class="bx-acc" x="605" y="162" width="135" height="56" rx="6"/>
-            <text class="tc b" x="672.5" y="186">Remind or delete</text>
-            <text class="sm tc" x="672.5" y="204">emails the owner</text>
-            <line class="ln" x1="155" y1="190" x2="212" y2="190" marker-end="url(#f3-a)"/>
-            <text class="sm tc on" x="183.5" y="182">fires</text>
-            <line class="ln" x1="350" y1="190" x2="407" y2="190" marker-end="url(#f3-a)"/>
-            <text class="sm tc on" x="378.5" y="182">enqueues</text>
-            <line class="ln" x1="545" y1="190" x2="602" y2="190" marker-end="url(#f3-a)"/>
-            <text class="sm tc on" x="573.5" y="182">acts</text>
-          </svg>
-        </div>
-        <figcaption>Top: what the owner of a trial cluster sees (not to scale). Bottom: a scheduled trigger feeds a Redis-backed queue, and the control plane sends each reminder or deletes the cluster when its date arrives.</figcaption>
-      </figure>
-      <h3>What I built</h3>
-      <ul class="built">
-        <li>Auto-deletion for trial clusters: each cluster gets a deletion date, a scheduled job queues the clusters that are due, and the owner is warned 15 days, 3 days and 24 hours ahead, with one 5-day extension.</li>
-        <li>Admin search and filters by deletion settings, and deletion settings that carry over correctly when a cluster is cloned or migrated.</li>
-        <li>A cleanup routine in the Go Spark driver service with a configurable schedule. It restarts safely when its settings change and calls a cleanup Cloud Function with a signed JWT.</li>
-      </ul>
-      <p class="lead-in"><span class="tag">Result</span>Part of the work behind an estimated 30% reduction in cloud cost, with the manual cleanup work gone.</p>
-      <ul class="stack"><li>Go</li><li>Node.js</li><li>Bull</li><li>Redis</li><li>Cloud Scheduler</li><li>Cloud Functions</li><li>JWT</li></ul>
-      <a class="back" href="#index">Back to the list</a>
-    </article>
-
-    <!-- 04 -->
-    <article class="case" id="usage-alerts">
-      <p class="meta"><span class="n">04</span><span>Observability</span><span>Feb 2025 – Oct 2026</span></p>
-      <h2>Usage alerts customers set for themselves</h2>
-      <blockquote class="cv"><span class="cv-label">On my CV</span>Designed and shipped usage alerting across 4 services (Go, Node.js, React): budget alerts at 50/80/100% by engine, service, Spark workload or AI model, checked every 4 hours instead of daily for 6x faster detection.</blockquote>
-      <p class="lead-in"><span class="tag">Problem</span>Customers learned about high consumption late. The first consumption alerts I built in 2025 ran once a day for the whole cluster, so a spike in one workload could go unnoticed for most of a day.</p>
-      <figure>
-        <div class="fig-scroll">
-          <svg class="dg" viewBox="0 0 760 300" role="img" aria-label="Users set a limit in the customer or admin portal; the control plane creates one policy per level in the alerting engine; every 4 hours the engine reads usage from the control plane and reports crossed levels, which the control plane records and emails to cluster members.">
-            <defs>
-              <marker id="f4-a" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path class="ah" d="M0,0 L10,5 L0,10 z"/></marker>
-              <marker id="f4-c" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto"><path class="ah-acc" d="M0,0 L10,5 L0,10 z"/></marker>
-            </defs>
-            <rect class="bx" x="20" y="48" width="130" height="40" rx="6"/>
-            <text class="tc" x="85" y="73">Customer portal</text>
-            <rect class="bx" x="20" y="112" width="130" height="40" rx="6"/>
-            <text class="tc" x="85" y="137">Admin portal</text>
-            <line class="ln" x1="150" y1="68" x2="237" y2="84" marker-end="url(#f4-a)"/>
-            <line class="ln" x1="150" y1="132" x2="237" y2="116" marker-end="url(#f4-a)"/>
-            <text class="sm tc on" x="194" y="104">set a limit</text>
-
-            <rect class="bx" x="240" y="40" width="190" height="120" rx="8"/>
-            <text class="tc b" x="335" y="66">Control plane API</text>
-            <text class="sm tc" x="335" y="84">Node.js</text>
-            <text class="sm tc" x="335" y="140">rules, events, emails</text>
-
-            <rect class="bx" x="590" y="40" width="150" height="120" rx="8"/>
-            <text class="tc b" x="665" y="66">Alerting engine</text>
-            <text class="sm tc" x="665" y="84">Go</text>
-            <rect class="pill" x="600" y="118" width="40" height="22" rx="11"/>
-            <text class="sm tc ink" x="620" y="133">50%</text>
-            <rect class="pill" x="645" y="118" width="40" height="22" rx="11"/>
-            <text class="sm tc ink" x="665" y="133">80%</text>
-            <rect class="pill" x="690" y="118" width="40" height="22" rx="11"/>
-            <text class="sm tc ink" x="710" y="133">100%</text>
-
-            <line class="ln" x1="430" y1="70" x2="587" y2="70" marker-end="url(#f4-a)"/>
-            <text class="sm tc on" x="510" y="62">one policy per level</text>
-            <line class="ln-acc" x1="590" y1="102" x2="433" y2="102" marker-end="url(#f4-c)"/>
-            <text class="sm acc tc on" x="510" y="94">every 4 h: read usage</text>
-            <line class="ln" x1="590" y1="134" x2="433" y2="134" marker-end="url(#f4-a)"/>
-            <text class="sm tc on" x="510" y="126">level crossed</text>
-
-            <rect class="bx" x="190" y="232" width="170" height="52" rx="6"/>
-            <text class="tc" x="275" y="254">Consumption data</text>
-            <text class="sm tc" x="275" y="272">read day by day, cached</text>
-            <rect class="bx" x="400" y="232" width="170" height="52" rx="6"/>
-            <text class="tc" x="485" y="254">Email</text>
-            <text class="sm tc" x="485" y="272">cluster members, once</text>
-            <line class="ln" x1="290" y1="160" x2="280" y2="229" marker-end="url(#f4-a)"/>
-            <text class="sm te on" x="276" y="200">month to date</text>
-            <line class="ln" x1="390" y1="160" x2="470" y2="229" marker-end="url(#f4-a)"/>
-            <text class="sm on" x="442" y="196">record, then notify</text>
-          </svg>
-        </div>
-        <figcaption>Each level of a rule is its own policy in the alerting engine. Every 4 hours the engine reads usage from the control plane; when a level is crossed it sends an event, which is recorded before the cluster's members get one email.</figcaption>
-      </figure>
-      <h3>What I built</h3>
-      <ul class="built">
-        <li>Rules: a user sets one limit on a metric (monthly consumption, contract consumption, AI tokens or storage) and can narrow it to an engine, a service, a Spark workload or an AI model. Alerts fire at 50%, 80% and 100%.</li>
-        <li>Each level is its own policy in the central alerting engine (Go), so levels open and recover independently and each one emails once per period.</li>
-        <li>Checks run every 4 hours instead of once a day, spread across the hour to avoid load spikes. Usage comes from a service-authenticated endpoint that reads month-to-date usage day by day and caches settled days.</li>
-        <li>Events are stored before any email goes out, recoveries are stored without email, and each rule keeps a delivery history. Rules are capped at 20 per cluster, and a rule that fails to sync rolls back cleanly.</li>
-        <li>Pages in the customer portal and the admin portal (React, TypeScript).</li>
-      </ul>
-      <p class="lead-in"><span class="tag">Result</span>The worst-case time to notice a crossing dropped from 24 hours to 4, with no extra emails.</p>
-      <ul class="stack"><li>Go</li><li>Node.js</li><li>React</li><li>TypeScript</li><li>MySQL</li><li>REST APIs</li></ul>
-      <a class="back" href="#index">Back to the list</a>
-    </article>
-
-    <!-- 05 -->
     <article class="case" id="multi-cloud">
-      <p class="meta"><span class="n">05</span><span>Cloud</span><span>Dec 2025 – Jun 2026</span></p>
-      <h2>One control plane, three clouds</h2>
-      <blockquote class="cv"><span class="cv-label">On my CV</span>Expanded multi-cloud support (GCP, AWS, Azure): moved provider logic behind a platform abstraction in a 34-file refactor, and added AWS operator features for S3 uploads, EBS resizing, archiving, DataSync cloning and database imports as Kubernetes Jobs.</blockquote>
+      <p class="meta"><span>Cloud</span><span>Dec 2025 – Jun 2026</span></p>
+      <h2>One control plane across clouds</h2>
+      <blockquote class="cv"><span class="cv-label">In short</span>Expanded multi-cloud support (GCP, AWS, Azure, Oracle): moved provider logic behind a platform abstraction in a 34-file refactor, and added AWS operator features for S3 uploads, EBS resizing, archiving, DataSync cloning and database imports as Kubernetes Jobs.</blockquote>
       <p class="lead-in"><span class="tag">Problem</span>Checks for which cloud a cluster ran on were spread through the control plane, so each platform change meant edits in many places. On AWS, the operator also lacked features the GCP side already had.</p>
       <figure>
         <div class="fig-scroll">
@@ -668,11 +842,10 @@ footer p { margin: 0; max-width: 70ch; }
       <a class="back" href="#index">Back to the list</a>
     </article>
 
-    <!-- 06 -->
     <article class="case" id="cloud-security">
-      <p class="meta"><span class="n">06</span><span>Security</span><span>Oct 2025 – Apr 2026</span></p>
+      <p class="meta"><span>Security</span><span>Oct 2025 – Apr 2026</span></p>
       <h2>Least-privilege access and credential rotation</h2>
-      <blockquote class="cv"><span class="cv-label">On my CV</span>Secured cloud access for platform services: moved the operator to IAM Roles for Service Accounts (IRSA), automated EKS Pod Identity grants, enabled S3 ABAC, and built audited credential rotation through Kubernetes Secrets.</blockquote>
+      <blockquote class="cv"><span class="cv-label">In short</span>Secured cloud access for platform services: moved the operator to IAM Roles for Service Accounts (IRSA), automated EKS Pod Identity grants, enabled S3 ABAC, and built audited credential rotation through Kubernetes Secrets.</blockquote>
       <p class="lead-in"><span class="tag">Problem</span>On AWS, the operator logged in with stored credentials at start-up, granting a cluster access to its storage was a manual step, and changing a cluster's console password needed an engineer.</p>
       <figure>
         <div class="fig-scroll">
@@ -743,118 +916,77 @@ footer p { margin: 0; max-width: 70ch; }
       <a class="back" href="#index">Back to the list</a>
     </article>
 
-    <!-- 07 -->
-    <article class="case" id="forecasting">
-      <p class="meta"><span class="n">07</span><span>Data and FinOps</span><span>Aug – Oct 2026</span></p>
-      <h2>A month-end forecast that follows recent usage</h2>
-      <blockquote class="cv"><span class="cv-label">On my CV</span>Reduced month-end consumption forecast error from 2.9% to 2.0% (31% lower, backtested on 10 production clusters) by switching to a 14-day recent average; built scheduled monthly usage reports per service.</blockquote>
-      <p class="lead-in"><span class="tag">Problem</span>The consumption view projected each cluster's month-end usage from its average since the contract started. A cluster that changed its usage kept being projected at the old pace.</p>
+    <article class="case" id="idle-cleanup">
+      <p class="meta"><span>Cost</span><span>Jul 2025 – May 2026</span></p>
+      <h2>Cleaning up idle resources automatically</h2>
+      <blockquote class="cv"><span class="cv-label">In short</span>Automated cleanup of idle cloud resources, contributing to an estimated 30% cost reduction: queue-driven auto-deletion of trial clusters and resources with 15-day, 3-day and 24-hour warnings, and a scheduled Spark cleanup routine in Go.</blockquote>
+      <p class="lead-in"><span class="tag">Problem</span>Trial clusters and old Spark files kept costing money after nobody needed them, and cleaning them up was manual work.</p>
       <figure>
         <div class="fig-scroll">
-          <svg class="dg" viewBox="0 0 760 300" role="img" aria-label="Illustration: usage steps up early in the month. From day 18, the since-contract average projects too low; the 14-day recent average lands close to the actual month end.">
-            <rect class="win" x="102.8" y="40" width="228.6" height="210"/>
-            <text class="sm acc tc" x="217" y="56">last 14 complete days</text>
-            <line class="axis" x1="50" y1="250" x2="560" y2="250"/>
-            <line class="axis" x1="50" y1="40" x2="50" y2="250"/>
-            <line class="axis" x1="50" y1="250" x2="50" y2="255"/>
-            <line class="axis" x1="208.3" y1="250" x2="208.3" y2="255"/>
-            <line class="axis" x1="384.1" y1="250" x2="384.1" y2="255"/>
-            <line class="axis" x1="560" y1="250" x2="560" y2="255"/>
-            <text class="sm tc" x="50" y="270">1</text>
-            <text class="sm tc" x="208.3" y="270">10</text>
-            <text class="sm tc" x="384.1" y="270">20</text>
-            <text class="sm tc" x="560" y="270">30</text>
-            <text class="sm tc" x="305" y="292">day of month</text>
-            <text class="sm" x="56" y="32">usage so far this month</text>
-
-            <line class="today" x1="349" y1="40" x2="349" y2="250"/>
-            <text class="sm" x="355" y="56">today: day 18</text>
-
-            <polyline class="ln-ink" points="50,246.5 173.1,222 349,145"/>
-            <line class="ln-ink dotted" x1="349" y1="145" x2="560" y2="50.5"/>
-            <line class="ln-new" x1="349" y1="145" x2="560" y2="70.5"/>
-            <line class="ln-old" x1="349" y1="145" x2="560" y2="107.2"/>
-            <circle class="d-ink" cx="349" cy="145" r="4"/>
-            <circle class="d-ink" cx="560" cy="50.5" r="4"/>
-            <circle class="d-acc" cx="560" cy="70.5" r="4"/>
-            <circle class="d-old" cx="560" cy="107.2" r="4"/>
-            <text class="sm ink" x="572" y="54.5">actual month end</text>
-            <text class="sm acc b" x="572" y="74.5">14-day recent average</text>
-            <text class="sm" x="572" y="111">since-contract average</text>
-          </svg>
-        </div>
-        <figcaption>Illustration, not real data. When usage steps up, the average since the contract started keeps projecting the old pace; the average of the last 14 complete days follows the new pace and lands closer to the real month end. On 10 production clusters, the average month-end miss fell from 2.9% to 2.0%.</figcaption>
-      </figure>
-      <h3>What I did</h3>
-      <ul class="built">
-        <li>Backtested projection methods on 10 production clusters in Python. The average of the last 14 complete days missed month end by 2.0% on average, against 2.9% for the since-contract average.</li>
-        <li>Built it into the burn service: runway, depletion date and the daily threshold alert use the recent average, clusters without a contract get a projection too, and the next two months get a likely range that is wider for Spark-heavy clusters.</li>
-        <li>Scheduled monthly consumption reports per cluster, with a per-service chart and totals against each engine's limit.</li>
-      </ul>
-      <p class="lead-in"><span class="tag">Result</span>Month-end forecast error 31% lower in the backtest, and a forecast for clusters that had none.</p>
-      <ul class="stack"><li>Python</li><li>Node.js</li><li>React</li><li>Cloud Scheduler</li></ul>
-      <a class="back" href="#index">Back to the list</a>
-    </article>
-
-    <!-- 08 -->
-    <article class="case" id="platform-ops">
-      <p class="meta"><span class="n">08</span><span>DevOps</span><span>Mar 2025 – Oct 2026</span></p>
-      <h2>Scheduled scaling, ops tooling and delivery</h2>
-      <blockquote class="cv"><span class="cv-label">On my CV</span>Built scheduled scaling for services, loaders and sub-clusters and ops tooling in the React/TypeScript admin portal, and shipped services through GitHub Actions, Cloud Build and Kustomize to per-region deployments in the US and UAE.</blockquote>
-      <p class="lead-in"><span class="tag">Problem</span>Scaling on a schedule and routine operations, such as forcing a stuck upgrade, reading Spark pod logs or approving backups, needed an engineer with cluster access.</p>
-      <figure>
-        <div class="fig-scroll">
-          <svg class="dg" viewBox="0 0 760 196" role="img" aria-label="Delivery pipeline: a pull request runs checks and a SonarQube quality gate in GitHub Actions, Cloud Build builds a Docker image, and Kustomize overlays deploy one operator per region: GCP us-west1, GCP us-central1 and Azure UAE North.">
+          <svg class="dg" viewBox="0 0 760 232" role="img" aria-label="Timeline of a trial cluster's last weeks: warning emails at 15 days, 3 days and 24 hours before deletion, with one extension. Below, a scheduler triggers a Redis-backed queue and the control plane reminds or deletes.">
             <defs>
-              <marker id="f8-a" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path class="ah" d="M0,0 L10,5 L0,10 z"/></marker>
+              <marker id="f3-a" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path class="ah" d="M0,0 L10,5 L0,10 z"/></marker>
+              <marker id="f3-c" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto"><path class="ah-acc" d="M0,0 L10,5 L0,10 z"/></marker>
             </defs>
-            <rect class="bx" x="16" y="72" width="100" height="56" rx="6"/>
-            <text class="tc b" x="66" y="96">Pull</text>
-            <text class="tc b" x="66" y="113">request</text>
-            <rect class="bx" x="146" y="72" width="180" height="56" rx="6"/>
-            <text class="tc b" x="236" y="96">GitHub Actions</text>
-            <text class="sm tc" x="236" y="114">checks + SonarQube gate</text>
-            <rect class="bx" x="356" y="72" width="120" height="56" rx="6"/>
-            <text class="tc b" x="416" y="96">Cloud Build</text>
-            <text class="sm tc" x="416" y="114">Docker image</text>
-            <rect class="bx" x="506" y="72" width="100" height="56" rx="6"/>
-            <text class="tc b" x="556" y="96">Kustomize</text>
-            <text class="sm tc" x="556" y="114">overlays</text>
-            <line class="ln" x1="116" y1="100" x2="143" y2="100" marker-end="url(#f8-a)"/>
-            <line class="ln" x1="326" y1="100" x2="353" y2="100" marker-end="url(#f8-a)"/>
-            <line class="ln" x1="476" y1="100" x2="503" y2="100" marker-end="url(#f8-a)"/>
+            <path class="ln-acc" d="M 420 50 C 470 22, 640 22, 690 46" marker-end="url(#f3-c)"/>
+            <text class="sm acc tc" x="555" y="18">owner can extend once: +5 days</text>
 
-            <rect class="bx-acc" x="640" y="20" width="104" height="40" rx="6"/>
-            <text class="sm tc ink b" x="692" y="36">GCP</text>
-            <text class="sm tc" x="692" y="51">us-west1</text>
-            <rect class="bx-acc" x="640" y="80" width="104" height="40" rx="6"/>
-            <text class="sm tc ink b" x="692" y="96">GCP</text>
-            <text class="sm tc" x="692" y="111">us-central1</text>
-            <rect class="bx-acc" x="640" y="140" width="104" height="40" rx="6"/>
-            <text class="sm tc ink b" x="692" y="156">Azure</text>
-            <text class="sm tc" x="692" y="171">UAE North</text>
-            <line class="ln" x1="606" y1="100" x2="637" y2="42" marker-end="url(#f8-a)"/>
-            <line class="ln" x1="606" y1="100" x2="637" y2="100" marker-end="url(#f8-a)"/>
-            <line class="ln" x1="606" y1="100" x2="637" y2="158" marker-end="url(#f8-a)"/>
+            <text class="tl" x="50" y="66">Cluster created</text>
+            <text class="tl tc" x="260" y="66">15 days left</text>
+            <text class="tl tc" x="420" y="66">3 days left</text>
+            <text class="tl tc" x="550" y="66">24 hours left</text>
+            <text class="tl te warn" x="710" y="66">Deleted</text>
+
+            <line class="ln" x1="50" y1="86" x2="710" y2="86"/>
+            <circle class="dot" cx="50" cy="86" r="5"/>
+            <circle class="dot" cx="260" cy="86" r="5"/>
+            <circle class="dot" cx="420" cy="86" r="5"/>
+            <circle class="dot" cx="550" cy="86" r="5"/>
+            <circle class="dot-warn" cx="710" cy="86" r="5"/>
+
+            <text class="sm" x="50" y="110">deletion date set</text>
+            <text class="sm tc" x="260" y="110">warning email</text>
+            <text class="sm tc" x="420" y="110">reminder email</text>
+            <text class="sm tc" x="550" y="110">final reminder</text>
+            <text class="sm te" x="710" y="110">owner notified</text>
+
+            <text class="lbl" x="20" y="150">How it runs</text>
+            <rect class="bx" x="20" y="162" width="135" height="56" rx="6"/>
+            <text class="tc b" x="87.5" y="186">Cloud Scheduler</text>
+            <text class="sm tc" x="87.5" y="204">cron trigger</text>
+            <rect class="bx" x="215" y="162" width="135" height="56" rx="6"/>
+            <text class="tc b" x="282.5" y="186">Job service</text>
+            <text class="sm tc" x="282.5" y="204">Bull queue, Redis</text>
+            <rect class="bx" x="410" y="162" width="135" height="56" rx="6"/>
+            <text class="tc b" x="477.5" y="186">Control plane</text>
+            <text class="sm tc" x="477.5" y="204">deletion queue</text>
+            <rect class="bx-acc" x="605" y="162" width="135" height="56" rx="6"/>
+            <text class="tc b" x="672.5" y="186">Remind or delete</text>
+            <text class="sm tc" x="672.5" y="204">emails the owner</text>
+            <line class="ln" x1="155" y1="190" x2="212" y2="190" marker-end="url(#f3-a)"/>
+            <text class="sm tc on" x="183.5" y="182">fires</text>
+            <line class="ln" x1="350" y1="190" x2="407" y2="190" marker-end="url(#f3-a)"/>
+            <text class="sm tc on" x="378.5" y="182">enqueues</text>
+            <line class="ln" x1="545" y1="190" x2="602" y2="190" marker-end="url(#f3-a)"/>
+            <text class="sm tc on" x="573.5" y="182">acts</text>
           </svg>
         </div>
-        <figcaption>Every change runs branch-name, syntax and SonarQube checks in GitHub Actions. Cloud Build produces the image, and Kustomize overlays deploy one operator per cloud region.</figcaption>
+        <figcaption>Top: what the owner of a trial cluster sees (not to scale). Bottom: a scheduled trigger feeds a Redis-backed queue, and the control plane sends each reminder or deletes the cluster when its date arrives.</figcaption>
       </figure>
       <h3>What I built</h3>
       <ul class="built">
-        <li>Scheduled scaling for services, loaders and sub-clusters, with node status kept in sync while scaling and on connect or disconnect, plus a scaling history view.</li>
-        <li>Admin portal tools (React, TypeScript, Ant Design): a zone control panel, backup approvals, Spark and Kyuubi pod logs, forced upgrades for stuck clusters, sign-up reviews and consumption report settings.</li>
-        <li>Customer portal: a redesigned consumption dashboard and usage alerts on the cluster page.</li>
-        <li>Per-region operator deployments through Kustomize overlays on GCP and Azure.</li>
+        <li>Auto-deletion for trial clusters: each cluster gets a deletion date, a scheduled job queues the clusters that are due, and the owner is warned 15 days, 3 days and 24 hours ahead, with one 5-day extension.</li>
+        <li>Admin search and filters by deletion settings, and deletion settings that carry over correctly when a cluster is cloned or migrated.</li>
+        <li>A cleanup routine in the Go Spark driver service with a configurable schedule. It restarts safely when its settings change and calls a cleanup Cloud Function with a signed JWT.</li>
       </ul>
-      <p class="lead-in"><span class="tag">Result</span>Routine operations became audited actions in the admin portal instead of scripts run by hand.</p>
-      <ul class="stack"><li>React</li><li>TypeScript</li><li>Ant Design</li><li>GitHub Actions</li><li>SonarQube</li><li>Cloud Build</li><li>Kustomize</li><li>Docker</li></ul>
+      <p class="lead-in"><span class="tag">Result</span>Part of the work behind an estimated 30% reduction in cloud cost, with the manual cleanup work gone.</p>
+      <ul class="stack"><li>Go</li><li>Node.js</li><li>Bull</li><li>Redis</li><li>Cloud Scheduler</li><li>Cloud Functions</li><li>JWT</li></ul>
       <a class="back" href="#index">Back to the list</a>
     </article>
   </main>
 
   <footer>
-    <p>Diagrams are simplified and cover my own contributions only. Internal service names, customer data and configuration are left out. Updated October 2026.</p>
+    <p>Diagrams and code sketches are simplified and cover my own contributions only. Internal service names, customer data and configuration are left out. Updated November 2026.</p>
   </footer>
 </div>
 
